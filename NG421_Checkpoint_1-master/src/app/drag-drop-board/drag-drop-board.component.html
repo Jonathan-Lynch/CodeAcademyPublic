@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-4">
+        <div cdkDropList (cdkDropListDropped)="drop($event)" #stage1="cdkDropList" [cdkDropListData]="todos" [cdkDropListConnectedTo]="[stage2]">
+            <ul align="center" class="list-group">
+                <div *ngFor="let todo of todos" cdkDrag>
+                    <li class="list-group-item">
+                        <app-todo [todo]="todo"></app-todo>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div cdkDropList (cdkDropListDropped)="drop($event)" #stage2="cdkDropList" [cdkDropListData]="doing" [cdkDropListConnectedTo]="[stage1,stage3]">
+            <ul align="center" class="list-group">
+                <div *ngFor="let doing of doing" cdkDrag>
+                    <li class="list-group-item">
+                        <app-todo [todo]="doing"></app-todo>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div cdkDropList (cdkDropListDropped)="drop($event)" #stage3="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[stage2]">
+            <ul align="center" class="list-group">
+                <div *ngFor="let done of done" cdkDrag>
+                    <li class="list-group-item">
+                        <app-todo [todo]="done"></app-todo>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+.todo {
+    color: #FF0000
+}
+
+.doing {
+    color: #00be00;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+button {
+    margin-right: 2px;
+}
