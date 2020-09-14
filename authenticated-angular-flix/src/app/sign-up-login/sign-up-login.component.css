@@ -1,0 +1,14 @@
+.btn {
+    padding: 5px;
+    background: lightgray;
+    color: rgb(97, 96, 96);
+    margin: 10px;
+}
+
+input {
+    margin: 10px;
+}
+
+p {
+    margin: 10px;
+}
