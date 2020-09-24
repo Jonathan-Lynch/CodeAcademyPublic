@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.my-table {
+    width: 75%;
+    margin-left: 3%;
+}
+mat-form-field {
+    width: 300px;
+    margin-left: 3%;
+}
+mat-paginator {
+    float: right;
+}
+.filterBy {
+    margin-left: 3%;
+}
+.my-label {
+    margin-right: 10px;
+}

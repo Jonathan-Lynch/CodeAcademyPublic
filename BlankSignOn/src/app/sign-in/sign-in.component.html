@@ -1,0 +1,12 @@
+<div class="container text-center" style="max-width: 300px; margin: auto;">
+<form [formGroup]="formSubmit" class="form-signin" (ngSubmit)="submit()">
+    <h1 class="h3 mb-3">Please Sign In</h1>
+    <input type="email" id="inputEmail" formControlName="inputEmail" class="form-control" placeholder="Email address">
+    <label class="alert alert-danger" *ngIf="!this.formSubmit.controls.inputEmail.valid && this.formSubmit.controls.inputEmail.touched;">Email required</label>
+    <input type="password" id="inputPassword" formControlName="inputPassword" class="form-control" placeholder="Password">
+    <label class="alert alert-danger" *ngIf="inputPasswordInvalid">Password required</label>
+    <button class="bn btn-lg btn-primary btn-block" type="submit" [disabled]="!formSubmit.valid">Sign in</button>
+    <label class="alert alert-danger" *ngIf="!validLogin">Invalid username and/or passsword</label>
+</form>
+<a routerLink="/register">Register</a>
+</div>

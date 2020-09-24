@@ -1,0 +1,16 @@
+<div class="container text-center" style="max-width: 300px;">
+    <form [formGroup]="formSubmit" class="form-signin" (ngSubmit)="submit()">
+        <h1 class="h3 mb-3">Please Register</h1>
+        <label for="inputEmail" class="sr-only">Email Address</label>
+        <input #password type="email" id="inputEmail" formControlName="inputEmail" class="form-control" placeholder="Email address">
+        <label class="alert alert-danger" *ngIf="!formSubmit.controls.inputEmail.valid && formSubmit.controls.inputEmail.touched;">Email required</label>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" formControlName="inputPassword" class="form-control" placeholder="Password">
+        <label class="alert alert-danger" *ngIf="!formSubmit.controls.inputPassword.valid && formSubmit.controls.inputPassword.touched">Password required</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control" placeholder="Confirm Password">
+        <label class="alert alert-danger" *ngIf="confirmPasswordRequired">Confirm Password required</label>
+        <button class="bn btn-lg btn-primary btn-block" type="submit" [disabled]="!formSubmit.valid">Register</button>
+        <label class="alert alert-danger" *ngIf="passwordError">Passwords do not match</label>
+    </form>
+    <a routerLink="/signin" style="text-align: center;">Back</a>
+</div>

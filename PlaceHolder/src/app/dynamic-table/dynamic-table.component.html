@@ -1,0 +1,22 @@
+<div class="filterBy">
+    <label class="my-label">Filter By: </label>
+    <mat-button-toggle-group value="all" (change)="buttonToggle($event)">
+        <mat-button-toggle value="id">Id</mat-button-toggle>
+        <mat-button-toggle value="userId">User Id</mat-button-toggle>
+        <mat-button-toggle value="all">All</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="filter">
+</mat-form-field>
+<div class="my-table">
+    <mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container [matColumnDef]="column.columnDef" *ngFor="let column of columns">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>{{column.header}}</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element[column.columnDef]}}</mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSize]="10" [showFirstLastButtons]="true"></mat-paginator>
+</div>

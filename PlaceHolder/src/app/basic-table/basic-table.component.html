@@ -1,0 +1,38 @@
+<div class="filterBy">
+  <label class="my-label">Filter By: </label>
+  <mat-button-toggle-group value="all" (change)="buttonToggle($event)">
+    <mat-button-toggle value="id">Id</mat-button-toggle>
+    <mat-button-toggle value="userId">User Id</mat-button-toggle>
+    <mat-button-toggle value="all">All</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="filter">
+</mat-form-field>
+<div class="my-table">
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" align="center" width="100%">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="userId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> User Id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.userId}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="completed">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Completed </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.completed}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSize]="10" [showFirstLastButtons]="true"></mat-paginator>
+</div>
+
+<ng-template [ngIf]="loading">
+  <mat-spinner style="margin: 0 auto;"></mat-spinner>
+</ng-template>

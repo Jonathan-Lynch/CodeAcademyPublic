@@ -1,0 +1,54 @@
+<div class="container" style="margin: auto;">
+    <h1>User Profile</h1>
+    <form [formGroup]="formUserProfile" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-2">
+                <label>Firstname</label>
+            </div>
+            <div class="col-md-4">
+                <input type="text" formControlName="firstName" class="formControl" placeholder="firstname">
+            </div>
+        </div>
+        <div class="row"><label class="alert alert-danger" *ngIf="firstNameError">Firstname cannot be more than {{this.MAX_LENGTH}} characters</label></div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Lastname</label>
+            </div>
+            <div class="col-md-4">
+                <input type="text" formControlName="lastName" class="formControl" placeholder="lastname">
+            </div>
+        </div>
+        <div class="row"><label class="alert alert-danger" *ngIf="lastNameError">Lastname cannot be more than {{this.MAX_LENGTH}} characters</label></div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Age</label>
+            </div>
+            <div class="col-md-4">
+                <select formControlName="age">
+                    <option *ngFor="let age of validAges">{{age}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Is Admin</label>
+            </div>
+            <div class="col-md-4">
+                <input type="checkbox" formControlName="isAdmin" class="formControl">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Image URL</label>
+            </div>
+            <div class="col-md-4">
+                <input type="text" formControlName="profileImageUrl" class="formControl" style="width: 350px;" placeholder="http://www...">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <button class="btn btn-primary" type="submit" [disabled]="!formUserProfile.valid">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
